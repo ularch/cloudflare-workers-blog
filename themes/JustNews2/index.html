@@ -51,9 +51,16 @@
 
     {{ &OPT.codeBeforHead }}
     <style>
-        .container, .wrap, .sec-panel, .item, .widget, .footer, .item-img-inner, .item-content, .widget-title, #comments, .main {
+        .container, .wrap, .sec-panel, .item, .widget, .item-img-inner, .item-content, #comments, .main {
             border-radius: 18px !important;
             overflow: hidden;
+        }
+        
+        .widget-title {
+            border-radius: 18px !important;
+            overflow: visible; /* 修复widget-title的::before显示不全的问题 */
+            position: relative;
+            padding-left: 15px; /* 为::before元素留出空间 */
         }
         
         .item-img img {
