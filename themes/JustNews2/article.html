@@ -51,8 +51,35 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.3.2/styles/tomorrow-night-bright.min.css">
     <script src='https://cdn.staticfile.org/highlight.js/10.3.2/highlight.min.js'></script>
     {{ &OPT.codeBeforHead }}
+    <style>
+        .container, .wrap, .sec-panel, .item, .widget, .footer, .item-img-inner, .item-content, .widget-title, #comments, .entry-head, .entry-content, .entry-footer {
+            border-radius: 18px !important;
+            overflow: hidden;
+        }
+        
+        .item-img img {
+            border-radius: 18px !important;
+        }
+        
+        .pagination li {
+            border-radius: 18px !important;
+        }
+        
+        .navbar-nav > li {
+            border-radius: 18px !important;
+        }
+        
+        .entry-page-prev, .entry-page-next {
+            border-radius: 18px !important;
+        }
+        
+        .header {
+            border-radius: 0 !important;
+        }
+    </style>
 </head>
-<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed">
+<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed" style="background-image: url('https://cdnimg-v2.gamekee.com/wiki2.0/images/w_3456/h_2569/829/157597/2025/4/30/847498.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; position: relative;">
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); z-index: -1;"></div>
 <header class="header">
     <div class="container clearfix">
         <div class="navbar-header">
@@ -95,8 +122,8 @@
 
         <div class="main">
             <article id="post-{{ &articleSingle.id }}"
-                     class="post-{{ &articleSingle.id }} post type-post status-publish format-standard has-post-thumbnail hentry ">
-                <div class="entry">
+                     class="post-{{ &articleSingle.id }} post type-post status-publish format-standard has-post-thumbnail hentry "style="border-radius: 18px">
+                <div class="entry" style="border-radius: 0">
                     <div class="entry-head">
                         <h1 class="entry-title">{{ &articleSingle.title }}</h1>
                         <div class="entry-info">
