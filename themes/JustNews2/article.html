@@ -438,6 +438,24 @@
 </script>
 <script>hljs.initHighlightingOnLoad(); //代码高亮
 </script>
+<script type='text/javascript'>
+    // 添加页面可见性变化监听，实现标题更改功能
+    document.addEventListener('visibilitychange', function () {
+        const originalTitle = '{{ &articleSingle.title }} - {{ &OPT.siteName }}';
+
+        if (document.hidden) {
+            // 用户离开页面时更改标题
+            document.title = "别走嘛，再看看嘛~";
+        } else {
+            // 用户返回页面时显示欢迎回来
+            document.title = "欢迎回来~";
+            // 两秒后恢复原标题
+            setTimeout(function() {
+                document.title = originalTitle;
+            }, 2000);
+        }
+    });
+</script>
 {{ &OPT.codeBeforBody }}
 </body>
 
