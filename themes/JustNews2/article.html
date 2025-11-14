@@ -473,19 +473,19 @@
     });
 </script>
 {{ &OPT.codeBeforBody }}
-<script>
-    // 视差滚动效果实现
-    document.addEventListener('DOMContentLoaded', function() {
-        const parallaxBackground = document.getElementById('parallaxBackground');
-        const pageHeight = document.body.scrollHeight - window.innerHeight;
-        
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            const rate = scrolled * -0.5;
-            parallaxBackground.style.transform = `translate3d(0, ${rate}px, 0)`;
-        });
-    });
-</script>
+<!--<script>-->
+<!--    // 视差滚动效果实现-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        const parallaxBackground = document.getElementById('parallaxBackground');-->
+<!--        const pageHeight = document.body.scrollHeight - window.innerHeight;-->
+<!--        -->
+<!--        window.addEventListener('scroll', function() {-->
+<!--            const scrolled = window.scrollY;-->
+<!--            const rate = scrolled * -0.5;-->
+<!--            parallaxBackground.style.transform = `translate3d(0, ${rate}px, 0)`;-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 </body>
 
 </html>
