@@ -79,10 +79,36 @@
         .header {
             border-radius: 0 !important;
         }
+        
+        /* 视差滚动背景容器 */
+        .parallax-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('https://cdnimg-v2.gamekee.com/wiki2.0/images/w_3456/h_2569/829/157597/2025/4/30/847498.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -2;
+            transform: translate3d(0,0,0);
+        }
+        
+        /* 背景遮罩层 */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
     </style>
 </head>
-<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed" style="background-image: url('https://cdnimg-v2.gamekee.com/wiki2.0/images/w_3456/h_2569/829/157597/2025/4/30/847498.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; position: relative;">
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); z-index: -1;"></div>
+<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed">
+<div class="parallax-background" id="parallaxBackground"></div>
+<div class="background-overlay"></div>
 <header class="header">
     <div class="container clearfix">
         <div class="navbar-header">
@@ -414,6 +440,19 @@ var fifuImageVars = {
     });
 })(jQuery);</script>
 {{ &OPT.codeBeforBody }}
+<script>
+    // 视差滚动效果实现
+    document.addEventListener('DOMContentLoaded', function() {
+        const parallaxBackground = document.getElementById('parallaxBackground');
+        const pageHeight = document.body.scrollHeight - window.innerHeight;
+        
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const rate = scrolled * -0.5;
+            parallaxBackground.style.transform = `translate3d(0, ${rate}px, 0)`;
+        });
+    });
+</script>
 </body>
 
 </html>
