@@ -86,12 +86,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 120%;
+            /* 移除固定高度，改用最小高度确保覆盖整个页面 */
+            min-height: 100vh;
             background-image: url('https://cdnimg-v2.gamekee.com/wiki2.0/images/w_3456/h_2569/829/157597/2025/4/30/847498.png');
             background-size: cover;
             background-repeat: no-repeat;
+            background-attachment: scroll; /* 改为随页面滚动 */
             z-index: -2;
-            transform: translate3d(0,0,0);
         }
         
         /* 背景遮罩层 */
@@ -444,13 +445,24 @@ var fifuImageVars = {
     // 视差滚动效果实现
     document.addEventListener('DOMContentLoaded', function() {
         const parallaxBackground = document.getElementById('parallaxBackground');
-        const pageHeight = document.body.scrollHeight - window.innerHeight;
         
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            const rate = scrolled * -0.5;
-            parallaxBackground.style.transform = `translate3d(0, ${rate}px, 0)`;
-        });
+        function adjustBackground() {
+            // 获取页面总高度和窗口高度
+            const documentHeight = Math.max(
+                document.body.scrollHeight, document.body.offsetHeight, 
+                document.documentElement.clientHeight, document.documentElement.scrollHeight, 
+                document.documentElement.offsetHeight
+            );
+            
+            // 设置背景高度与页面总高度一致
+            parallaxBackground.style.height = documentHeight + 'px';
+        }
+        
+        // 初始调整
+        adjustBackground();
+        
+        // 监听窗口大小变化
+        window.addEventListener('resize', adjustBackground);
     });
 </script>
 </body>
